@@ -1,0 +1,31 @@
+<section>
+	<div id="champSearch">
+		<div class="input-field">
+			<i class="material-icons prefix">search</i>
+			<input id="recherProduit" type="text" ng-model="recherche">
+			<label for="recherProduit" class="">Rechercher un produit</label>
+		</div>
+		<select class="browser-default" ng-model="cats.model" ng-change="afficheSousCat(cats.model)">
+			<option value="">Choissisez une catégorie</option>
+			<option ng-repeat="x in cats.options" value="{{x.code_rubrique_Rubrique}}">{{x.nom_rubrique}}</option>
+		</select>
+		<select class="browser-default" ng-show="choixCat" ng-model="sousCat.model" material-select watch>
+			<option value="">Choissisez une sous-catégorie</option>
+			<option ng-repeat="x in sousCat.options" value="{{x.code_rubrique}}">{{x.nom_rubrique}}</option>
+		</select>
+		<a class="btns waves-light btn waves-effect" ng-click="rechercher(recherche)"><i class="large material-icons">search</i>Rechercher</a>
+		<a class="btns waves-light btn waves-effect" ng-click="reset()">Ré-initialiser</a>
+	</div>
+
+	<div class="afficheProduit" ng-repeat="item in listeProduit">
+		<div ng-click="afficheDetail(item.code_produit)">
+			<img src="{{item.photo_produit}}" />
+			<div class="titreRecherche"><span class="bold">Nom du produit : </span>{{item.libelle_court_produit}}</div>
+			<div class="dispo">
+				<span class="green-text bold" ng-show="item.dispo">DISPONIBLE</span>
+				<span class="red-text bold" ng-hide="item.dispo">INDISPONIBLE</span>
+			</div>
+			<i class="large material-icons right">keyboard_arrow_right</i>
+		</div>
+	</div>
+</section>

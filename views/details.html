@@ -1,0 +1,10 @@
+<div id="detailsProduit">
+	<img src="{{details.photo_produit}}" /><br/>
+	<b class="bold">Nom : </b>{{details.libelle_court_produit}}<br/>
+	<b class="bold">Description : </b>{{details.libelle_long_produit}}<br/>
+	<b class="bold">Prix : </b>{{details.prix_vente_produit}} €<br/>
+	<div class="dispoDetail">
+		<span class="green-text bold" ng-show="details.dispo">DISPONIBLE</span>
+		<span class="red-text bold" ng-hide="details.dispo">INDISPONIBLE</span>
+	</div>
+</div>
